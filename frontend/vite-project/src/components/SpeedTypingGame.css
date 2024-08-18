@@ -30,7 +30,7 @@ input.input-field {
 
 #paragraph {
   word-break: break-word; /* Prevents overflow by breaking long words */
-  text-align: left;
+  text-align: justify;
   white-space: pre-wrap; /* Preserves whitespace and wraps text as needed */
   padding: 0.5rem; /* Add padding to ensure proper spacing */
   box-sizing: border-box;
@@ -46,8 +46,23 @@ input.input-field {
 
 }
 
+.altsection {
+  /* border: 1px solid #ced4da;
+  border-radius: 5px; */
+  padding: 20px;
+  padding-top: 0;
+  width: 100%;
+  max-width: 1000px;
+
+}
+
 .section1 {
   border-bottom: 1px solid #ced4da;
+  overflow: hidden; /* Ensures content does not overflow the section */
+}
+
+.altsection1 {
+  /* border-bottom: 1px solid #ced4da; */
   overflow: hidden; /* Ensures content does not overflow the section */
 }
 
@@ -59,12 +74,12 @@ span {
 
 span.wrong {
   color: darkred;
-  background-color: pink;
+  background-color: rgb(171, 43, 64);
 }
 
 span.correct {
-  color: #0e630e;
-  background: #e7fbd3;
+  color: #003100;
+  background: #6fde00;
 }
 
 span.active {
@@ -88,6 +103,8 @@ span.active {
   width: calc(100% - 120px);
   flex-wrap: wrap; /* Allows list items to wrap on smaller screens */
 }
+
+
 
 .section2 ul li {
   list-style-type: none;

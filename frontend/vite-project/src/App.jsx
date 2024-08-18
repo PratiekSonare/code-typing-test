@@ -4,6 +4,7 @@ import SpeedTypingGame from './components/SpeedTypingGame';
 import Navbar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import ThemeProvider from './ThemeContext';
+import AltSpeedTypingGame from './components/AltSpeedTypingGame';
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
           <Navbar />
           <div>
             <Routes>
-              <Route path="/" element={<SpeedTypingGame />} />
+              <Route path="/" element={<AltSpeedTypingGame />} />
             </Routes>
           </div>
           <Footer />
