@@ -4,18 +4,18 @@ const Timer = ({ timeLeft, mistakes, onDurationChange, durations }) => {
     return (
         <div>
             <div className='section p-4'>
-                <div className='flex flex-col justify-center items-center'>
+                <div className='flex flex-row justify-evenly items-center'>
                     <h2>Time Left:</h2>
-                    <h4 className='text-red-500'>{timeLeft}</h4>
+                    <h4 className='text-red-500 text-3xl'>{timeLeft}</h4>
                 </div>
             </div>
             
             <br></br>
 
             <div className='section p-4'>
-                <div className='flex flex-col justify-center items-center'>
+                <div className='flex flex-row justify-evenly items-center'>
                     <h2>Mistakes:</h2>
-                    <h4 className='text-red-500'>{mistakes}</h4>
+                    <h4 className='text-red-500 text-3xl'>{mistakes}</h4>
                 </div>
             </div>
 

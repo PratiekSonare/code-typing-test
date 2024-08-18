@@ -1,4 +1,5 @@
 import React from 'react';
+import ThemeToggleButton from '../ThemeToggleButton';
 
 const TypingArea = ({
   typingText,
@@ -18,7 +19,11 @@ const TypingArea = ({
           {typingText}
         </div>
       </div>
+      <div className='flex flex-row justify-between items-center'>
         <button className="btn flex justify-center items-center" onClick={resetGame}>Try Again</button>
+        <ThemeToggleButton />
+      </div>
+        
     </div>
   );
 };
