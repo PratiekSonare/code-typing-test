@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './SpeedTypingGame.css';
-import TypingArea from './TypingArea'; // Import the TypingArea component
-import CircularProgressBar from './CircularProgressBar';
-import Timer from './Timer';
+import AltTypingArea from './TypingArea'; // Import the TypingArea component
+import AltCircularProgressBar from './CircularProgressBar';
+import AltTimer from './Timer';
 import { ThemeContext } from '../ThemeContext';
+import AlgoList from './AlgoList/AlgoList';
 
 const SpeedTypingGame = () => {
     const { currentTheme } = useContext(ThemeContext);
@@ -38,10 +39,10 @@ const SpeedTypingGame = () => {
         const content = Array.from(paragraphs[ranIndex]).map((letter, index) => (
             <span
                 key={index}
-                style={{ color: (letter !== ' ') ? 'black' : 'transparent' }}
+                style={{ color: (letter !== ' ') ? currentTheme.textColor : 'transparent' }}
                 className={`char ${index === 0 ? 'active' : ''}`}
             >
-                {letter !== ' ' ? letter : '_'}
+                {letter !== ' ' ? letter : ' '}
             </span>
         ));
         setTypingText(content);
@@ -73,7 +74,7 @@ const SpeedTypingGame = () => {
             setWPM(wpm);
         } else if (event.key === 'Enter') {
             // Skip to the next non-space character
-            while (charIndex < characters.length && characters[charIndex].innerText === '_') {
+            while (charIndex < characters.length && characters[charIndex].innerText === ' ') {
                 setCharIndex(charIndex + 1);
             }
             if (charIndex < characters.length) {
@@ -87,16 +88,18 @@ const SpeedTypingGame = () => {
         let typedChar = event.target.value;
         if (charIndex < characters.length && timeLeft > 0) {
             let currentChar = characters[charIndex].innerText;
-            if (currentChar === '_') currentChar = ' ';
+            if (currentChar === ' ') currentChar = ' ';
             if (!isTyping) {
                 setIsTyping(true);
             }
             if (typedChar === currentChar) {
+                console.log("Adding correct class");
                 setCharIndex(charIndex + 1);
                 if (charIndex + 1 < characters.length) characters[charIndex + 1].classList.add('active');
                 characters[charIndex].classList.remove('active');
                 characters[charIndex].classList.add('correct');
             } else {
+                console.log("Adding wrong class");
                 setCharIndex(charIndex + 1);
                 setMistakes(mistakes + 1);
                 characters[charIndex].classList.remove('active');
@@ -145,8 +148,12 @@ const SpeedTypingGame = () => {
     };
 
     useEffect(() => {
+        resetGame();
+    }, [duration]);
+
+    useEffect(() => {
         loadParagraph();
-    }, []);
+    }, [currentTheme]);
 
     useEffect(() => {
         let interval;
@@ -179,43 +186,52 @@ const SpeedTypingGame = () => {
 
     
     return (
-        // <div className={`box ${isHidden ? 'hidden' : ''}`}>
-            <div className='flex justify-center items-center h-screen' style={{ background: currentTheme.background, color: currentTheme.textColor }}>
-                <div className='flex w-screen'>
-                    <div className="flex-none w-[15vw] p-4 ml-10">
-                        <CircularProgressBar WPM={WPM} CPM={CPM} timeLeft={timeLeft} />
-                    </div>
-                    <div className='flex-grow p-4 mx-6'>
-                        <input
-                            type="text"
-                            className="input-field"
-                            value={inpFieldValue}
-                            onChange={initTyping}
-                            onKeyDown={handleKeyDown}
-                        />
-                        <TypingArea
-                            typingText={typingText}
-                            inpFieldValue={inpFieldValue}
-                            timeLeft={timeLeft}
-                            mistakes={mistakes}
-                            WPM={WPM}
-                            CPM={CPM}
-                            initTyping={initTyping}
-                            handleKeyDown={handleKeyDown}
-                            resetGame={resetGame}
-                        />
-                    </div>
-                    <div className='flex-grow p-4 mr-10'>
-                        <Timer 
-                            timeLeft={timeLeft} 
-                            mistakes={mistakes}
-                            onDurationChange={handleDurationChange}
-                            durations={[10, 30, 60, 120]} 
-                        />
-                    </div>
+        <div className='mb-32'>
+        <div className="grid grid-cols-12 gap-4 p-6" style={{ background: currentTheme.background, color: currentTheme.textColor, borderColor: currentTheme.borderColor }}>
+            {/* Left Sidebar */}
+            <div className="col-span-2 p-4 rounded-lg section" style={{ borderColor: currentTheme.borderColor }}>
+                <AlgoList />
+            </div>
+
+            {/* Middle Section */}
+            <div className="col-span-7 p-4 rounded-lg" style={{ background: currentTheme.cardColor }}>
+                <input
+                    type="text"
+                    className="input-field"
+                    value={inpFieldValue}
+                    onChange={initTyping}
+                    onKeyDown={handleKeyDown}
+                />
+                <AltTypingArea
+                    typingText={typingText}
+                    inpFieldValue={inpFieldValue}
+                    timeLeft={timeLeft}
+                    mistakes={mistakes}
+                    WPM={WPM}
+                    CPM={CPM}
+                    initTyping={initTyping}
+                    handleKeyDown={handleKeyDown}
+                    resetGame={resetGame}
+                />
+            </div>
+
+            {/* Right Sidebar */}
+            <div className="col-span-3 flex flex-col items-center p-4 rounded-lg section" style={{ borderColor: currentTheme.borderColor }}>
+                <div className="mb-6 w-full">
+                    <AltCircularProgressBar WPM={WPM} CPM={CPM} timeLeft={timeLeft} />
+                </div>
+                <div className="w-full">
+                    <AltTimer 
+                        timeLeft={timeLeft} 
+                        mistakes={mistakes}
+                        onDurationChange={handleDurationChange}
+                        durations={[10, 30, 60, 120]} 
+                    />
                 </div>
             </div>
-        // </div>
+        </div>
+        </div>
+        
     );
 };
 

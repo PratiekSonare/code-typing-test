@@ -1,14 +1,18 @@
 // src/ThemeToggleButton.jsx
 import React, { useContext } from 'react';
 import { ThemeContext } from './ThemeContext';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 const ThemeToggleButton = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <button onClick={toggleTheme} className='btn flex justify-center items-center'>
-      Toggle to {theme === 'light' ? 'Dark' : 'Light'} Theme
-    </button>
+    <div className='rounded-full'>
+      <button onClick={toggleTheme} className='btn1 flex'>
+        <DarkModeIcon style={{width: 24, height: 24}}/>
+      </button>
+    </div>
+    
   );
 };
 

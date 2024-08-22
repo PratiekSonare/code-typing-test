@@ -14,8 +14,10 @@ const Timer = ({ timeLeft, mistakes, onDurationChange, durations }) => {
 
             <div className='section p-4'>
                 <div className='flex flex-row justify-evenly items-center'>
-                    <h2>Mistakes:</h2>
-                    <h4 className='text-red-500 text-3xl'>{mistakes}</h4>
+                    {/* <div className=''> */}
+                        <h2>Mistakes:</h2>
+                        <h4 className='text-red-500 text-3xl'>{mistakes}</h4>                       
+                    {/* </div> */}
                 </div>
             </div>
 

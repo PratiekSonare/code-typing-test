@@ -1,4 +1,3 @@
-// src/ThemeContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
 
 export const ThemeContext = createContext();
@@ -9,15 +8,16 @@ const ThemeProvider = ({ children }) => {
   const lightTheme = {
     background: '#ffffff',
     textColor: '#000000',
-    inputBackground: '#f0f0f0',
-    inputColor: '#000000',
+    cardColor: '#d0d3d4',
+    borderColor: '#000000'
   };
 
   const darkTheme = {
-    background: '#333333',
+    background: '#070f4e',
     textColor: '#ffffff',
-    inputBackground: '#555555',
-    inputColor: '#ffffff',
+    inputColor: '#000000',
+    cardColor: '#070f4e',
+    borderColor: '#ffffff'
   };
 
   const toggleTheme = () => {
@@ -32,6 +32,10 @@ const ThemeProvider = ({ children }) => {
       setTheme(localTheme);
     }
   }, []);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = theme === 'light' ? lightTheme.background : darkTheme.background;
+  }, [theme]);
 
   const currentTheme = theme === 'light' ? lightTheme : darkTheme;
 

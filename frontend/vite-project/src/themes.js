@@ -1,14 +1,14 @@
 // src/theme.js
 export const lightTheme = {
-  body: '#FFF',
+  body: '#070f4e',
   text: '#363537',
   toggleBorder: '#FFF',
   background: '#363537',
 };
 
 export const darkTheme = {
-  body: '#363537',
-  text: '#FAFAFA',
+  body: '#070f4e',
+  text: '#ffffff',
   toggleBorder: '#6B8096',
-  background: '#999',
+  background: '#070f4e',
 };

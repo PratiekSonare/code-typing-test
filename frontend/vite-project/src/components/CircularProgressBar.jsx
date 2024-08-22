@@ -3,13 +3,13 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const CircularProgressBar = ({ WPM, CPM, timeLeft }) => {
-  let progress_size = 150;
+  let progress_size = 115;
   // if (timeLeft === 0) {
   //   progress_size = 250;
   // }
 
   return (
-    <div className='flex flex-col justify-evenly gap-10 fixed'>
+    <div className='flex flex-row justify-evenly gap-10'>
       <div className='transition-all ease-in-out 0.5s' style={{ width: progress_size, height: progress_size }}>
         <CircularProgressbarWithChildren 
           value={WPM} 
