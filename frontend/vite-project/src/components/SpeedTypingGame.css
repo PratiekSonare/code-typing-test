@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Noto Sans Mono', monospace;
+  background-color: linear-gradient(180deg, rgba(7,15,78,1) 0%, rgba(3,7,35,1) 38%, rgba(0,0,0,1) 100%);
 }
 
 .container {
@@ -71,8 +72,8 @@ input.input-field {
 }
 
 .section {
-  border: 1px solid #000000;
-  border-radius: 5px;
+  border: 1px solid #fff;
+  border-radius: 10px;
   padding: 20px;
   padding-top: 0;
   width: 100%;
@@ -101,7 +102,7 @@ input.input-field {
 }
 
 span {
-  font-size: 18px;
+  font-size: 20px;
   user-select: none;
   cursor: text;
 }
@@ -156,14 +157,12 @@ span.active {
 
 button.btn {
   padding: 10px 20px;
-  outline: none;
   border: 1px solid #ced4da;
   margin: 5px;
-  border-radius: 60px;
+  border-radius: 10px;
   cursor: pointer;
   background: darkred;
   color: #fff;
-  font-size: 16px;
   transition: all 0.5s;
 }
 
@@ -260,4 +259,27 @@ nav, footer {
 @keyframes blink-caret {
   from, to { border-color: transparent; }
   50% { border-color: orange; }
+}
+
+
+.invisible-scrollbar {
+  display: block;
+  /* width: 10em; */
+  overflow: auto;
+  /* height: 2em; */
+  margin: 1em auto;
+  /* outline: 2px dashed cornflowerblue; */
+}
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.algobutton {
+  border: 1px #fff solid;
+  border-radius: 10px;
+  padding: 5px;
+  width: 100%;
+  height: auto;
+  transition: all 0.5s;
 }

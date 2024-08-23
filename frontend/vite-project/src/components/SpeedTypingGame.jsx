@@ -186,15 +186,16 @@ const SpeedTypingGame = () => {
 
     
     return (
-        <div className='mb-32'>
-        <div className="grid grid-cols-12 gap-4 p-6" style={{ background: currentTheme.background, color: currentTheme.textColor, borderColor: currentTheme.borderColor }}>
+        <div className='h-screen px-20' style={{ background: 'linear-gradient(180deg, rgba(7,15,78,1) 0%, rgba(3,7,35,1) 69%, rgba(0,0,0,1) 100%)'}}>
+        <div className="grid grid-cols-12 gap-4 p-6" style={{ color: currentTheme.textColor, borderColor: currentTheme.borderColor }}>
             {/* Left Sidebar */}
-            <div className="col-span-2 p-4 rounded-lg section" style={{ borderColor: currentTheme.borderColor }}>
+            <div className="col-span-2 p-4 rounded-lg" style={{ borderColor: currentTheme.borderColor }}>
                 <AlgoList />
             </div>
 
             {/* Middle Section */}
-            <div className="col-span-7 p-4 rounded-lg" style={{ background: currentTheme.cardColor }}>
+            {/* <div data-aos="zoom-in"> */}
+                    <div className="col-span-7 p-4 rounded-lg mt-16" style={{ background: currentTheme.cardColor }}>
                 <input
                     type="text"
                     className="input-field"
@@ -214,9 +215,11 @@ const SpeedTypingGame = () => {
                     resetGame={resetGame}
                 />
             </div>
+            {/* </div> */}
+
 
             {/* Right Sidebar */}
-            <div className="col-span-3 flex flex-col items-center p-4 rounded-lg section" style={{ borderColor: currentTheme.borderColor }}>
+            <div className="col-span-3 flex flex-col items-center p-4 rounded-lg" style={{ borderColor: currentTheme.borderColor }}>
                 <div className="mb-6 w-full">
                     <AltCircularProgressBar WPM={WPM} CPM={CPM} timeLeft={timeLeft} />
                 </div>

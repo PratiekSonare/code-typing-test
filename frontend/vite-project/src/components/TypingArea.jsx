@@ -24,8 +24,8 @@ const TypingArea = ({
           {typingText}
         </div>
       </div>
-      <div className='flex flex-row justify-between items-center'>
-        <button className="btn flex justify-center items-center" onClick={resetGame}>Try Again</button>
+      <div className='flex flex-row justify-center items-center'>
+        <button className="btn flex justify-center items-center press-start-2p-regular text-sm" onClick={resetGame}>Try Again</button>
       </div>
     </div>
   );

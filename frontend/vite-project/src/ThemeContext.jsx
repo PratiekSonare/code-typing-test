@@ -16,7 +16,7 @@ const ThemeProvider = ({ children }) => {
     background: '#070f4e',
     textColor: '#ffffff',
     inputColor: '#000000',
-    cardColor: '#070f4e',
+    cardColor: '',
     borderColor: '#ffffff'
   };
 
