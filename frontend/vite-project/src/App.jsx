@@ -5,6 +5,7 @@ import Navbar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import ThemeProvider from './ThemeContext';
 import Banner from './components/Banner';
+import HomePage from './components/HomePage';
 
 const App = () => {
   return (
@@ -12,13 +13,10 @@ const App = () => {
       <BrowserRouter>
         <div>
           <Navbar />
-          <div>
-            <Banner />
             <div>
               <Routes>
-                <Route path="/" element={<SpeedTypingGame />} />
+                <Route path="/" element={<HomePage />} />
               </Routes>
-            </div>
           </div>
           <Footer />
         </div>

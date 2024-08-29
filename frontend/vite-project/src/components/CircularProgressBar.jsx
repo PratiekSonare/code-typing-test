@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { ThemeContext } from '../ThemeContext';
 
 const CircularProgressBar = ({ WPM, CPM, timeLeft }) => {
+  const { currentTheme } = useContext(ThemeContext);
   let progress_size = 115;
   // if (timeLeft === 0) {
   //   progress_size = 250;
@@ -31,7 +33,7 @@ const CircularProgressBar = ({ WPM, CPM, timeLeft }) => {
             },
           }}
         >
-          <div style={{ fontSize: 10, marginTop: 35 }}>
+          <div style={{ fontSize: 10, marginTop: 35, color: currentTheme.textColor }}>
             WPM
           </div>
         </CircularProgressbarWithChildren>
@@ -57,7 +59,7 @@ const CircularProgressBar = ({ WPM, CPM, timeLeft }) => {
             },
           }}
         >
-          <div style={{ fontSize: 10, marginTop: 35 }}>
+          <div style={{ fontSize: 10, marginTop: 35, color: currentTheme.textColor }}>
             CPM
           </div>
         </CircularProgressbarWithChildren>

@@ -78,7 +78,6 @@ input.input-field {
   padding-top: 0;
   width: 100%;
   max-width: 800px;
-
 }
 
 .altsection {
@@ -87,8 +86,6 @@ input.input-field {
   padding: 20px;
   padding-top: 0;
   width: 100%;
-  max-width: 1000px;
-
 }
 
 .section1 {
@@ -102,7 +99,7 @@ input.input-field {
 }
 
 span {
-  font-size: 20px;
+  font-size: 25px;
   user-select: none;
   cursor: text;
 }
@@ -247,7 +244,7 @@ nav, footer {
 
 .typewriter-visible h1 {
   opacity: 1; /* Become visible when scrolling up */
-  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+  animation: typing 5s steps(40, end), blink-caret .75s step-end infinite;
   width: 100%; /* Expand to full width */
 }
 
@@ -276,10 +273,63 @@ nav, footer {
 }
 
 .algobutton {
-  border: 1px #fff solid;
+  border: 1px solid;
+  border-color: '';
   border-radius: 10px;
   padding: 5px;
   width: 100%;
   height: auto;
   transition: all 0.5s;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px; /* Reduced gap to minimize spacing between images */
+  transition: grid-template-columns 0.3s;
+}
+
+.card:has(.left:hover) {
+  grid-template-columns: 2fr 0.5fr 0.5fr;
+}
+
+.card:has(.center:hover) {
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+}
+
+.card:has(.right:hover) {
+  grid-template-columns: 0.5fr 0.5fr 2fr;
+}
+
+/* Optional: Style adjustments for images */
+.card img {
+  width: 100%; /* Make images fully fit within their grid containers */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s; /* Smooth transition for scaling */
+}
+
+.popup {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* high z-index value */
+  width: 300px; /* fixed width */
+  height: 200px; /* fixed height */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999; /* lower z-index value than the popup */
 }

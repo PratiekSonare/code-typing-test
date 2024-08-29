@@ -6,18 +6,20 @@ const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
   const lightTheme = {
-    background: '#ffffff',
+    background: '#d0d3d4',
     textColor: '#000000',
-    cardColor: '#d0d3d4',
-    borderColor: '#000000'
+    cardColor: '#5d6d7e',
+    borderColor: '#000000',
+    footernavbar: '#d0d3d4'
   };
 
   const darkTheme = {
-    background: '#070f4e',
+    background: 'linear-gradient(180deg, rgba(7,15,78,1) 0%, rgba(3,7,35,1) 69%, rgba(0,0,0,1) 100%)',
     textColor: '#ffffff',
     inputColor: '#000000',
     cardColor: '',
-    borderColor: '#ffffff'
+    borderColor: '#ffffff',
+    footernavbar: '#070f4e'
   };
 
   const toggleTheme = () => {

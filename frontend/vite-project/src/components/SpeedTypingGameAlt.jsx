@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import './SpeedTypingGame.css';
-import TypingArea from './TypingArea'; // Import the TypingArea component
-import CircularProgressBar from './CircularProgressBar';
-import AltTimer from './AltTimer';
+import AltTypingArea from './TypingArea'; // Import the TypingArea component
+import AltCircularProgressBar from './CircularProgressBar';
+import AltTimer from './Timer';
 import { ThemeContext } from '../ThemeContext';
 import AlgoList from './AlgoList/AlgoList';
 import Language from './Language';
 import Popup from './Popup';
+import Timer from './Timer';
 
 const SpeedTypingGame = () => {
     const { currentTheme } = useContext(ThemeContext);
@@ -208,70 +209,43 @@ const SpeedTypingGame = () => {
 
     
     return (
-        <div className='h-screen px-20 -mb-10' style={{ background: currentTheme.background}}>
-        <div className="grid grid-cols-12 gap-4 p-6" style={{ color: currentTheme.textColor, borderColor: currentTheme.borderColor }}>
-            {/* Left Sidebar */}
-            <div className="col-span-2 p-4 rounded-lg" style={{ borderColor: currentTheme.borderColor }}>
-            <AlgoList onAlgoClick={handleAlgoClick} />        
-            </div>
-            {showPopup && (
-                <Popup
-                algo={selectedAlgo}
-                onClose={() => setShowPopup(false)}
+        <div className='h-screen px-20 -mb-10' style={{ background: currentTheme.footernavbar}}>
+            <div className='flex justify-center gap-10 ml-16'>
+                <AltCircularProgressBar WPM={WPM} CPM={CPM} timeLeft={timeLeft} />
+                <AltTimer 
+                    timeLeft={timeLeft} 
+                    mistakes={mistakes}
+                    onDurationChange={handleDurationChange}
+                    durations={[10, 30, 60, 120]} 
                 />
-            )}    
+            </div>
+          <div className="grid grid-cols-12 gap-4 px-6 py-0" style={{ color: currentTheme.textColor, borderColor: currentTheme.borderColor }}>
             {/* Middle Section */}
-            {/* <div data-aos="zoom-in"> */}
-            {showTypingComponents ? (
-                <>
-                 <div className="col-span-7 p-4 rounded-lg mt-8" style={{ background: currentTheme.cardColor }}>
-                    <input
-                        type="text"
-                        className="input-field"
-                        value={inpFieldValue}
-                        onChange={initTyping}
-                        onKeyDown={handleKeyDown}
-                    />
-                    <TypingArea
-                        typingText={typingText}
-                        inpFieldValue={inpFieldValue}
-                        timeLeft={timeLeft}
-                        mistakes={mistakes}
-                        WPM={WPM}
-                        CPM={CPM}
-                        initTyping={initTyping}
-                        handleKeyDown={handleKeyDown}
-                        resetGame={resetGame}
-                    />
-                </div>
-            {/* </div> */}
+            <div className="col-span-12 p-4 rounded-lg mt-8" style={{ background: currentTheme.cardColor }}>
+              <input
+                type="text"
+                className="input-field"
+                value={inpFieldValue}
+                onChange={initTyping}
+                onKeyDown={handleKeyDown}
+              />
+              <AltTypingArea
+                typingText={typingText}
+                inpFieldValue={inpFieldValue}
+                timeLeft={timeLeft}
+                mistakes={mistakes}
+                WPM={WPM}
+                CPM={CPM}
+                initTyping={initTyping}
+                handleKeyDown={handleKeyDown}
+                resetGame={resetGame}
+              />
+            </div>
+          </div>
 
-
-            {/* Right Sidebar */}
-            <div className="col-span-3 flex flex-col items-center p-4 rounded-lg" style={{ borderColor: currentTheme.borderColor }}>
-                <div className="mb-6 w-full">
-                    <CircularProgressBar WPM={WPM} CPM={CPM} timeLeft={timeLeft} />
-                </div>
-                <div className="w-full">
-                    <AltTimer 
-                        timeLeft={timeLeft} 
-                        mistakes={mistakes}
-                        onDurationChange={handleDurationChange}
-                        durations={[10, 30, 60, 120]} 
-                    />
-                </div>
-            </div>               
-                </>
-            ) : (
-                <>
-
-                </>
-            )}
-
+          {/* <Timer /> */}
         </div>
-        </div>
-        
-    );
+      )
 };
 
 export default SpeedTypingGame;
