@@ -74,7 +74,7 @@ input.input-field {
 .section {
   border: 1px solid #fff;
   border-radius: 10px;
-  padding: 20px;
+  padding: 0;
   padding-top: 0;
   width: 100%;
   max-width: 800px;
@@ -271,6 +271,12 @@ nav, footer {
 .invisible-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Add this to your CSS file or Tailwind custom styles */
+.transition-colors {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
 
 .algobutton {
   border: 1px solid;

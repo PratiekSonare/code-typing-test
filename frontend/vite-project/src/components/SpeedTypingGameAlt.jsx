@@ -210,9 +210,11 @@ const SpeedTypingGame = () => {
     
     return (
         <div className='h-screen px-20 -mb-10' style={{ background: currentTheme.footernavbar}}>
-            <div className='flex justify-center gap-10 ml-16'>
-                <AltCircularProgressBar WPM={WPM} CPM={CPM} timeLeft={timeLeft} />
-                <AltTimer 
+            <div className='flex justify-evenly gap-32 mx-16'>
+                <div className='-mb-5'>
+                    <AltCircularProgressBar WPM={WPM} CPM={CPM} timeLeft={timeLeft} />
+                </div>
+                <AltTimer
                     timeLeft={timeLeft} 
                     mistakes={mistakes}
                     onDurationChange={handleDurationChange}

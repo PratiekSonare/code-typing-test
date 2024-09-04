@@ -37,7 +37,7 @@ const Timer = ({ timeLeft, mistakes, onDurationChange, durations }) => {
                             <button
                                 key={duration}
                                 className='px-2 py-2 rounded transition-all 0.5s border mx-1' 
-                                style={{ borderColor: '#d0d3d4' }} 
+                                style={{ borderColor: currentTheme.borderColor }} 
                                 onClick={() => onDurationChange(duration)
                                 }
                             >

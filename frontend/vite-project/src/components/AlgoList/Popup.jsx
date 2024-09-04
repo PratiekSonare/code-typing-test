@@ -57,5 +57,52 @@ const PopupBody = styled('div')(
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.875rem;
   z-index: 1;
-`,
+  transition: transform 0.3s, opacity 0.3s; /* Add transition effect */
+  `,
 );
+
+// Add a CSS class to the Popover component to handle the transition
+const StyledPopover = styled(Popover)`
+  &.MuiPopover-enter {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  &.MuiPopover-enter.MuiPopover-enterActive {
+    opacity: 1;
+    transform: scale(1);
+  }
+  &.MuiPopover-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+  &.MuiPopover-exit.MuiPopover-exitActive {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+`;
+
+// Replace the original Popover component with the styled one
+export default function SimplePopup({ open, anchorEl, handleClose }) {
+  const id = open ? 'simple-popper' : undefined;
+
+  return (
+    <StyledPopover
+      id={id}
+      open={open}
+      anchorEl={anchorEl}
+      onClose={handleClose}
+      anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'center',
+      }}
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'center',
+      }}
+    >
+      <PopupBody>
+        The content of the Popup.
+      </PopupBody>
+    </StyledPopover>
+  );
+}

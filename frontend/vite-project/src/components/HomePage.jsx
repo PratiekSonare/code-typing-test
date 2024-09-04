@@ -3,6 +3,8 @@ import SpeedTypingGame from './SpeedTypingGame';
 import Banner from './Banner';
 import Language from './Language';
 import SpeedTypingGameAlt from './SpeedTypingGameAlt';
+import AltAlgoList from './AlgoList/AltAlgoList';
+// import Accordion from '../components/AlgoList/Accordion';
 
 const HomePage = () => {
   const nextComponentRef = useRef(null);
@@ -27,6 +29,8 @@ const HomePage = () => {
       <Banner scrollToNextComponent={scrollToLanguage} />
         {/* <div ref={languageRef}> */}
           <Language scrollToNextComponent={scrollToNextComponent}/>
+          <AltAlgoList />
+          {/* <Accordion /> */}
         {/* </div> */}
           {/* <Language  /> */}
           <div ref={nextComponentRef}>

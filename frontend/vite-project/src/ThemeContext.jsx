@@ -8,7 +8,7 @@ const ThemeProvider = ({ children }) => {
   const lightTheme = {
     background: '#d0d3d4',
     textColor: '#000000',
-    cardColor: '#5d6d7e',
+    cardColor: '#aeafb0',
     borderColor: '#000000',
     footernavbar: '#d0d3d4'
   };
