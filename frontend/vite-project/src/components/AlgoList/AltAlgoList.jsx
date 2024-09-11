@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react'
 import { ThemeContext } from '../../ThemeContext';
+import TestTopic from './Topics/TestTopic';
 
 const AltAlgoList = ({ onAlgoClick }) => {
     const { currentTheme } = useContext(ThemeContext);
@@ -8,55 +9,7 @@ const AltAlgoList = ({ onAlgoClick }) => {
     const handleAccordionClick = (index) => {
     setAccordionOpenIndex(accordionOpenIndex === index ? null : index);
     };
-    
-    const content = `Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content
-                    Random Content`;
+
 
     const list = [
         'Language Syntax',            // Understanding the basic grammar and rules of the language
@@ -100,14 +53,14 @@ return (
             {/* <div className="flex justify-center items-center w-full"> */}
                 <button
                 onClick={() => handleAccordionClick(index)}
-                className="algobutton mb-5 flex justify-between"
+                className="algobutton mb-5 flex justify-between px-8 py-2"
                 style={{
                     height: 60,
                     borderColor: currentTheme.borderColor,
                     color: currentTheme.textColor,
                 }}
                 >
-                <span className="text-left">{element}</span>
+                <span className="text-left jost-regular">{element}</span>
                 {accordionOpenIndex === index ? <span>-</span> : <span>+</span>}
                 </button>
                 <div
@@ -115,8 +68,8 @@ return (
                     accordionOpenIndex === index ? 'block opacity-100' : 'hidden opacity-0'
                 }`}
                 >
-                <span className='text-sm jost-regular px-4'>
-                    {content}
+                <span className='p-4'>
+                    <TestTopic />
                 </span>
                 </div>
             {/* </div> */}

@@ -36,7 +36,7 @@ const Banner = ({ scrollToNextComponent }) => {
                     <h1>Learn data structure algorithms and improve your typing speed!</h1>
                 </div>
                 <div className='flex-end'>
-                    <DoubleArrowIcon style={{ width: 80, height: 80, color: 'white', opacity: 0.2, rotate: '90deg' }}/>
+                    <DoubleArrowIcon className='animate-ping' style={{ width: 60, height: 60, color: currentTheme.textColor, opacity: 0.6, rotate: '90deg' }}/>
                 </div>
             </div>
         </div>

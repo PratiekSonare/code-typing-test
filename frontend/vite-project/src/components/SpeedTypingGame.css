@@ -62,6 +62,9 @@ input.input-field {
   box-shadow: inset 0px 0px 32px 0px rgba(255, 255, 255, 0.58);
 }
 
+.topiccard {
+  font-size: 20px;
+}
 
 #paragraph {
   word-break: break-word; /* Prevents overflow by breaking long words */
